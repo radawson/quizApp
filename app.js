@@ -1,3 +1,12 @@
+// Question class
+class Question {
+
+  constructor(obj) {
+    Object.assign(this, obj);
+  }
+
+}
+
 const gameContainter = document.querySelector("main");
 const questionContainer = document.getElementById("question");
 const option1 = document.getElementById("option1");
@@ -5,11 +14,28 @@ const option2 = document.getElementById("option2");
 const option3 = document.getElementById("option3");
 const option4 = document.getElementById("option4");
 
+const questions = [
+  new Question({
+    question: "What time is it?",
+    answer1: "yo",
+    answer2: "nope",
+    answer3: "okay",
+    answer4: "lol",
+  }),
+  new Question({
+    question: "Capitol of France",
+    answer1: "England",
+    answer2: "New York",
+    answer3: "Germany",
+    answer4: "Paris",
+  })
+];
+
 //keep track of score
 let score = 0;
 
 //keep track of question
-let questionIndex = 0;
+let questionIndex = 1;
 
 //start button event
 const startBttn = document.getElementById("start");
@@ -49,34 +75,24 @@ startBttn.addEventListener("click", () => {
   gameContainer.appendChild(questionContainer) */
   startBttn.setAttribute("class", "hidden");
   gameContainter.classList.remove("hidden");
-  changeQuestion(question[questionIndex])
+  changeQuestion(questions[questionIndex])
 });
 
 //function to change question
-function changeQuestion (question[questionIndex]) {
+function changeQuestion(question) {
   questionIndex++
-  questionContainer.textContent = question[questionIndex].question
-  option1.textContent = question[questionIndex].answer1;
-  option2.textContent = question[questionIndex].answer2;
-  option3.textContent = question[questionIndex].answer3;
-  option4.textContent = question[questionIndex].answer4;
+  questionContainer.textContent = question.question
+  option1.textContent = question.answer1;
+  option2.textContent = question.answer2;
+  option3.textContent = question.answer3;
+  option4.textContent = question.answer4;
 }
 
-const question1 = {
-  question: "What time is it?",
-  answer1: "yo",
-  answer2: "nope",
-  answer3: "okay",
-  answer4: "lol",
-};
 
-const question2 = {
-  question: "Capitol of France",
-  answer1: "England",
-  answer2: "New York",
-  answer3: "Germany",
-  answer4: "Paris",
-};
+
+
+
+
 
 
 //keep track of time stretch goal maybe?
