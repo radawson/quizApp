@@ -21,6 +21,7 @@ const questions = [
     answer2: "nope",
     answer3: "okay",
     answer4: "lol",
+    correct: 4
   }),
   new Question({
     question: "Capitol of France",
@@ -28,6 +29,7 @@ const questions = [
     answer2: "New York",
     answer3: "Germany",
     answer4: "Paris",
+    correct: 2
   })
 ];
 
@@ -80,7 +82,7 @@ startBttn.addEventListener("click", () => {
 
 //function to change question
 function changeQuestion(question) {
-  questionIndex++
+  //questionIndex++
   questionContainer.textContent = question.question
   option1.textContent = question.answer1;
   option2.textContent = question.answer2;
@@ -88,7 +90,13 @@ function changeQuestion(question) {
   option4.textContent = question.answer4;
 }
 
-
+function checkAnswer(buttonNumber) {
+  if (questions[questionIndex].correct == buttonNumber) {
+    alert("Correct");
+  } else {
+    alert("Wrong");
+  }
+}
 
 
 
